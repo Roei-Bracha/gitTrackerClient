@@ -1,5 +1,6 @@
-import { watchDir } from './utils/watching';
-import path from 'path'
+import mainWindow from "./windows/mainWindow/mainWindow"
+import Tray from './windows/tray/Tray'
+const { app } = require('electron')
 
-const workDir = path.join(__dirname,'../src')
 
+app.on('ready', mainWindow)

@@ -5,7 +5,8 @@
   "main": "dist/main.js",
   "scripts": {
     "start": "electron .",
-    "watch": "nodemon --exec npm start"
+    "watch": "NODE_ENV=development nodemon --exec npm start",
+    "tsc-watch":"tsc && tsc --watch"
   },
   "author": "Roei Bracha",
   "license": "MIT",

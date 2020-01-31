@@ -8,8 +8,9 @@ made of two parts:
  - the tracker - an event listener that check if any file was changed and update the server 
 
 ## developing
-you will need 2 terminals:
+you will need 3 terminals:
 
  1. `npm start` or `npm run watch` for running the electron and the watcher app
  2. `npm run tsc-watch` to compile the typescript files to JavaScript
+ 3. `npm run client-dev` to work on the windows interfaces using react
 
