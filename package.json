@@ -4,9 +4,10 @@
   "description": "",
   "main": "dist/main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "NODE_ENV=development electron .",
     "watch": "NODE_ENV=development nodemon --exec npm start",
-    "tsc-watch":"tsc && tsc --watch"
+    "tsc-watch":"tsc && tsc --watch",
+    "client-dev":"cd interface && npm start"
   },
   "author": "Roei Bracha",
   "license": "MIT",

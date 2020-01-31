@@ -10,7 +10,7 @@ made of two parts:
 ## developing
 you will need 3 terminals:
 
- 1. `npm start` or `npm run watch` for running the electron and the watcher app
+ 1. `npm start`  for running the electron and the watcher app or `npm run watch` for hot reload
  2. `npm run tsc-watch` to compile the typescript files to JavaScript
  3. `npm run client-dev` to work on the windows interfaces using react
 
