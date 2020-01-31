@@ -1,6 +1,6 @@
 # git tacker client
 
-**about it**
+## about it
 this client is written in typescript using electronjs
 made of two parts:
 
