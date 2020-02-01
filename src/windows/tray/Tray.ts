@@ -21,7 +21,7 @@ const createTray = (iconPath : string, mainWindow : any)=>{
         }
     }
     tray = new Tray(iconPath)
-    tray.setToolTip('Timer App');
+    tray.setToolTip('Git tracker');
     tray.on('click', onClick);
     tray.on('right-click', ()=>{
         const menuConfig = Menu.buildFromTemplate([
