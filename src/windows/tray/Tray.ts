@@ -1,17 +1,39 @@
 const electron = require('electron');
-const { Tray, Menu } = electron;
+const { Tray, app, Menu } = electron;
 
-const TrayCreator = ():void => {
-    let appIcon = null
-    appIcon = new Tray('./icon.png');
-    const contextMenu = Menu.buildFromTemplate([
-        { label: 'Item1', type: 'radio' },
-        { label: 'Item2', type: 'radio' },
-        { label: 'Item3', type: 'radio', checked: true },
-        { label: 'Item4', type: 'radio' }
-      ])
-      appIcon.setToolTip('This is my application.')
-      appIcon.setContextMenu(contextMenu)
+let tray : any = null
+const createTray = (iconPath : string, mainWindow : any)=>{
+    const onClick = (event: any, bounds: any)=>{
+        const { x, y } = bounds;
+        // Window height and width
+        const { height, width } = mainWindow.getBounds();
+        if (mainWindow.isVisible()) {
+            mainWindow.hide();
+        } else {
+            const yPosition = process.platform === 'darwin' ? y : y - height;
+            mainWindow.setBounds({
+                x: x - width / 2,
+                y: yPosition,
+                height,
+                width
+            });
+            mainWindow.show();
+        }
+    }
+    tray = new Tray(iconPath)
+    tray.setToolTip('Timer App');
+    tray.on('click', onClick);
+    tray.on('right-click', ()=>{
+        const menuConfig = Menu.buildFromTemplate([
+            {
+                label: 'Quit',
+                click: () => app.quit()
+            }
+        ]);
+        tray.popUpContextMenu(menuConfig);
+    });
+
+    return tray
 }
 
-export default TrayCreator
+export default createTray
